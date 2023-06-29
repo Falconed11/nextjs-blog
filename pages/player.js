@@ -35,8 +35,10 @@ export default function Player({ players }) {
 
 export async function getServerSideProps() {
   // fetch post data from an external API endpoint
+
   const res = await getPlayers();
   const players = await res.result;
+
   return {
     props: {
       players,

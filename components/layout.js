@@ -9,9 +9,16 @@ export const siteTitle = "Next.js Sample Website";
 
 export default function Layout({ children, home }) {
   return (
-    <div className={styles.container}>
+    // <div className={styles.container}>
+    <div>
       <Head>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+          crossOrigin="anonymous"
+        />
         <meta
           name="description"
           content="Learn how to build a personal website using Next.js"
@@ -25,49 +32,58 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
-        {home ? (
-          <>
-            <Image
-              priority
-              src="/images/profile.jpg"
-              className={utilStyles.borderCircle}
-              height={144}
-              width={144}
-              alt=""
-            />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href="/">
-              <Image
-                priority
-                src="/images/profile.jpg"
-                className={utilStyles.borderCircle}
-                height={108}
-                width={108}
-                alt=""
-              />
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/" className={utilStyles.colorInherit}>
-                {name}
-              </Link>
-            </h2>
-          </>
-        )}
+      {/* <header className={styles.header}> */}
+      <header>
         <nav>
-          <ul>
-            <li>
-              <a href="/player">Player</a>
-            </li>
-          </ul>
+          <div className="container rounded shadow bg-nav text-white mt-3 py-1 jus">
+            <ul className="nav nav-pills text-white justify-content-center">
+              {home ? (
+                <Link className="navbar-brand text-white" href="#">
+                  <Image
+                    priority
+                    src="/images/profile.jpg"
+                    className="d-inline-block rounded-circle mx-2 align-text-top text-white"
+                    height={30}
+                    width={30}
+                    alt=""
+                  />
+                  {name}
+                </Link>
+              ) : (
+                <>
+                  <Link href="/">
+                    <Image
+                      priority
+                      src="/images/profile.jpg"
+                      className="rounded"
+                      height={108}
+                      width={108}
+                      alt=""
+                    />
+                  </Link>
+                  <h2>
+                    <Link href="/">{name}</Link>
+                  </h2>
+                </>
+              )}
+
+              <li className="nav-item">
+                <Link className="nav-link text-white" href="/player">
+                  Player
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link text-white" href="#">
+                  Rank
+                </Link>
+              </li>
+            </ul>
+          </div>
         </nav>
       </header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <div>
           <Link href="/">← Back to home</Link>
         </div>
       )}

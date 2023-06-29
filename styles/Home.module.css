@@ -1,4 +1,8 @@
-.container {
+Link {
+  color: aqua;
+}
+
+/* .container {
   min-height: 100vh;
   padding: 0 0.5rem;
   display: flex;
@@ -32,7 +36,6 @@
 .description {
   text-align: center;
 }
-
 
 .description {
   line-height: 1.5;
@@ -88,4 +91,4 @@
     width: 100%;
     flex-direction: column;
   }
-}
+} */
